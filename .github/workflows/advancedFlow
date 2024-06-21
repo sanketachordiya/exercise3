@@ -1,0 +1,22 @@
+name: fisrt workflow 21 June
+
+on: 
+  workflow_dispatch:
+
+jobs: 
+  firstJob:
+    runs-on: ubuntu-latest
+      steps:
+      - name: fisrtJob scripts
+        shell : bash
+        run: echo Hello World! This is first Job
+      - name: checkout action
+        uses: action/checkout@v4
+      - name: print to log
+      id: print-to-log
+      uses: actions/hello-world-javascript-action@main
+      with:
+        who-to-greet: ${{github.actor}}
+      - name:
+         echo "the time of greeting was at : {{steps.print-to-log.outputs.time}}
+      
